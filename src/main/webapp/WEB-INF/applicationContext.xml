@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+    <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
+    <context:property-placeholder location="classpath:*.properties" />
+
+    <!-- Enable @Transactional support -->
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+
+    <!-- Enable @AspectJ support -->
+    <aop:aspectj-autoproxy />
+
+    <aop:config>
+        <aop:pointcut id="pointcuts" expression="execution(* *..service.*Service.*(..) ) || execution(* *..service.questionario.*Service.*(..) )"/>
+        <aop:advisor id="managerTx" advice-ref="txAdvice" pointcut-ref="pointcuts"/>
+        <aop:advisor id="servletTx" advice-ref="txAdvice" pointcut="execution(* *..servlet.*.*(..) )"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="get*"    read-only="true" />
+            <tx:method name="find*"   read-only="true" />
+            <tx:method name="count*"  read-only="true" />
+            <tx:method name="call*"   read-only="true" />
+            <tx:method name="search*" read-only="true" />
+            <tx:method name="*"       rollback-for="Exception" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- Scans for @Repository, @Service and @Component -->
+    <context:annotation-config />
+    <context:component-scan base-package="et.gov.csa" />
+</beans>

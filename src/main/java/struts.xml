@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="${struts.devMode}" />
+    <!--constant name="struts.convention.classes.reload" value="${struts.devMode}" /-->
+    <!--constant name="struts.action.excludePattern" value="/.*html,/login_fam/?.*" /-->
+    <constant name="struts.action.excludePattern" value="/.*html"/>
+    <constant name="struts.action.extension" value="," /> 
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.convention.action.alwaysMapExecute" value="false" />
+    <constant name="struts.custom.i18n.resources" value="global,error" />
+    <constant name="struts.date.format" value="dd/MM/yyyy" />
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.locale" value="it" />
+    <constant name="struts.mapper.action.prefix.enabled" value="true" />
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
+    <constant name="struts.multipart.maxSize" value="10000000" />
+    <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+    <!--constant name="struts.patternMatcher" value="namedVariable"/-->
+    <constant name="struts.patternMatcher" value="regex" />
+    <constant name="struts.ui.theme" value="xhtml" />
+    <constant name="struts.ui.templateDir" value="template" />
+    <constant name="struts.unknownHandlerManager" value="et.gov.csa.utility.UnknownHandlerManager" />
+
+    <package name="default" extends="struts-default, json-default">
+        <interceptors>
+            <interceptor-stack name="SessionStack">
+                <interceptor-ref name="defaultStack">
+                    <param name="exception.logEnabled">false</param>
+                    <param name="exception.logLevel">ERROR</param>
+                    <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                </interceptor-ref>
+                <interceptor-ref name="tokenSession">
+                    <param name="excludeMethods">*</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="SessionStack" />
+        <global-results>
+            <result name="csvFile" type="stream">
+                <param name="contentType">application/vnd.ms-excel</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+            <result name="pdfFile" type="stream">
+                <param name="contentType">application/pdf</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+            <result name="xlsFile" type="stream">
+                <param name="contentType">application/vnd.ms-excel</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+            <result name="xlsxFile" type="stream">
+                <param name="contentType">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+            </result>
+            <result name="exceptionResult">
+                <param name="location">/WEB-INF/exception.jsp</param>
+            </result>
+            <result name="logout" type="redirect">/index.jsp</result>
+            <result name="error">/error.jsp</result>
+        </global-results>
+    </package>
+    
+</struts>
