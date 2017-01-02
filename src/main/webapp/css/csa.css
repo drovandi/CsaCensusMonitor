@@ -1,0 +1,147 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2-gen-2017, 17.08.03
+    Author     : mbruno
+*/
+html, body{
+    height: 100%;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+/* START HEADER */
+.navbar {
+    position: relative;
+    min-height: 55px;
+    margin-bottom: 21px;
+    border: 1px solid transparent;
+}
+.navbar, .navbar .dropdown-menu, .topnavbar{
+    filter: none!important;
+    color: white!important;
+    font-size: 18pt;
+    padding: 8px 15px;
+}
+
+.topnavbar {
+    border: 0;
+    background-color: #34788c;
+    background-repeat: repeat-x;
+    border-radius: 0px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5',endColorstr='#ff51c6ea',GradientType=1);
+    z-index: 1050;
+    margin-bottom: 0;
+}
+
+.topnavbar a {
+    color: white!important;
+    font-size: 14pt;
+}
+/* END HEADER */
+
+/* START LEFT SIDEBAR */
+.wrapper>.aside {
+    position: absolute;
+    width: 220px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 116;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+}
+.wrapper>.aside .aside-inner {
+    height: 100%;
+    overflow: hidden;
+    padding-top: 55px;
+    height: 100%;
+    width: 220px;
+}
+.sidebar {
+    height: 100%;
+    padding-bottom: 20px;
+    background-color: #fff;
+    overflow-x: hidden;
+    border-right: 1px rgba(0,0,0,.15) solid;
+}
+.sidebar>.nav {
+    position: relative;
+}
+.sidebar>.nav>.nav-heading:first-child {
+    padding-top: 20px;
+}
+.sidebar>.nav>.nav-heading, .sidebar li>.nav-item, .sidebar li>a {
+    white-space: nowrap;
+}
+.sidebar .nav-heading {
+    padding: 12px 15px;
+    color: #919da8;
+    font-size: 18px;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+}
+/* END LEFT SIDEBAR */
+
+/* START CONTAINER */
+.wrapper>section{
+    position: relative;
+    height: 100%;
+    margin-left: 0;
+    z-index: 111;
+    background-color: #f5f7fa;
+    margin-bottom: 60px!important
+}
+.content-wrapper {
+    padding: 20px;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,.15);
+    margin-top: -1px;
+}
+.content-wrapper > .content-heading, .content-wrapper>h3 {
+    margin: -20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #929292;
+    font-weight: 400;
+    background-color: #fafbfc;
+    border-bottom: 1px solid #cfdbe2
+}
+.content-wrapper>.content-heading>small, .content-wrapper>h3>small {
+    display: block;
+    font-size: 12px;
+    color: #909fa7;
+}
+.panel .panel-heading {
+    border-bottom: 0;
+    font-size: 14px;
+    background-color: #fff;
+}
+/* END CONTAINER */
+
+/* START FOOTER */
+.wrapper>footer, .wrapper>section {
+    margin-left: 220px;
+}
+.wrapper>footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    border-top: 1px solid #e4eaec;
+    padding: 20px;
+    z-index: 109;
+}
+/* END FOOTER */

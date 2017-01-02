@@ -23,12 +23,6 @@
             <groupId>org.apache.struts</groupId>
             <artifactId>struts2-core</artifactId>
             <version>${struts-version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.struts</groupId>
@@ -248,8 +242,8 @@
             </activation>
             <properties>
                 <jdbc.url>jdbc:mysql://localhost:3306</jdbc.url>
-                <jdbc.username>guido</jdbc.username>
-                <jdbc.password>guido</jdbc.password>
+                <jdbc.username>csamonitor</jdbc.username>
+                <jdbc.password>cs4m0n1t0r</jdbc.password>
                 <jdbc.maxActive>10</jdbc.maxActive>
                 <jdbc.minIdle>2</jdbc.minIdle>
                 <jdbc.maxIdle>2</jdbc.maxIdle>
@@ -258,7 +252,7 @@
                 <hibernate.format_sql>true</hibernate.format_sql>
                 <hibernate.show_sql>true</hibernate.show_sql>
                 <hibernate.default_schema>ethiopian_census</hibernate.default_schema>
-                <log.file>C:/Program Files/Apache/apache-tomcat-8.5.6/logs/csamonitor.log</log.file>
+                <log.file>G:/Programmi/Apache Software Foundation/apache-tomcat-7.0.62/logs/csamonitor.log</log.file>
                 <log.level>DEBUG</log.level>
                 <war.name>csaMonitor</war.name>
             </properties>

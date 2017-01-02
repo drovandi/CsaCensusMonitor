@@ -1,7 +1,8 @@
 <%@taglib uri='/struts-tags' prefix='s' %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<% /*
+
+
 <!-- START HEADER -->
 <header class="topnavbar-wrapper">
     <nav role="navigation" class="navbar topnavbar">
@@ -83,52 +84,3 @@
     </div>
 </aside>
 <!-- END LEFT SIDE BAR -->
-*/ %>
-
-<nav class="navbar navbar-default navbar-static-top" 
-     role="navigation" style="margin-bottom: 0px;">
-    <!-- /.navbar-header -->     
-    <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>             
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <A class="navbar-brand" href="#">
-            <IMG width="45%" title="Mec" alt="MEC" src="img/mec.svg">
-        </A> 
-    </div>
-
-    <div class="login">
-        <A class="login" href="#" data-toggle="modal" data-target="#login-modal"><I class="fa fa-signin fa-fw"></I> login </A>     
-    </div>
-    <!--Start Navigation menu --> 
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li class="release"><A 
-                        href="#"><I class="fa fa-bullhorn fa-fw"></I> &nbsp; Release 1.0</A>
-                </li>
-                <li id="home"><A href="#"><I 
-                            class="fa fa-home fa-fw"></I> &nbsp;Home</A></li>
-                <li>
-                    <A href="#"><I class="fa fa-pencil fa-fw"></I>Template<span class="fa arrow"></span></A>
-                    <ul class="nav nav-second-level collapse">
-                        <li id="template-form">
-                            <A href="#"><I class="fa fa-pencil fa-fw"></I>Form</A>
-                        </li>
-                        <li id="template-table">
-                            <A href="#"><I class="fa fa-pencil fa-fw"></I>Table</A>
-                        </li>
-                        <li id="template-graph">
-                            <A href="#"><I class="fa fa-pencil fa-fw"></I>Graph</A>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse --> 
-    </div>
-    <!-- /.navbar-static-side --> 
-</nav>

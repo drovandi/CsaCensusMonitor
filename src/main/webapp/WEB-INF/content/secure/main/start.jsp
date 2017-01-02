@@ -8,32 +8,33 @@
     <head>
     </head>
     <body>
+        <section>
+             <div class="content-wrapper">
+                <div class="content-heading">
+                    Territory
+                    <small>Monitor Report</small>
+                </div>
 
-        <DIV id="container" style="min-height: 820px;">	 
-            <DIV class="row">
-                <DIV class="col-md-12">
-                    <H4 class="title">With Mec you can:</H4>
-                </DIV>
-            </DIV>
-            <!-- /.row -->
-            <DIV class="row">
-                <DIV class="col-md-12">
-                    <DIV class="panel panel-define" id="defineNav">
-                        <DIV class="panel-heading"><I class="fa fa-pencil fa-fw"></I>define a form,  table and graph</DIV>
-                        <DIV class="panel-body">
-                            <P> ....</P>
-                            <P>
-                                <!--A class="btn btn-define displayModal" role="button" href="#"><I class="fa fa-chevron-right"></I> form </A>
-                                <A class="btn btn-define displayModal" role="button" href=""><I class="fa fa-chevron-right"></I>form implementation </A-->                     
-                            </P>
-                        </DIV>
-                    </DIV>
-                </DIV>
-            </DIV>
-            <!-- /.row -->     
+                <!-- START PANEL-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Search filters</div>
+                    <div class="panel-body">
+                        Ciaoooooone!
+                    </div>
+                </div>
+                <!-- END PANEL-->
 
-            <!-- End mec features section --> 
-        </DIV>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Territory Report</div>
+                            <table id="territory" class="display" cellspacing="0" width="100%">
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </section>
     </body>
 </html>

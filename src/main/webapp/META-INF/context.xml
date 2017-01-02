@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/CsaCensusMonitor">
-  <Realm className="org.apache.catalina.realm.JDBCRealm" connectionName="guido" connectionPassword="guido" connectionURL="jdbc:mysql://localhost:3306/ethiopian_census?autoReconnect=true&amp;useSSL=false" driverName="com.mysql.jdbc.Driver" roleNameCol="role" userCredCol="password" userNameCol="email" userRoleTable="c_user_roles" userTable="c_user"/>
+  <Realm className="org.apache.catalina.realm.JDBCRealm"
+         connectionName="csamonitor"
+         connectionPassword="cs4m0n1t0r" connectionURL="jdbc:mysql://localhost:3306/ethiopian_census?autoReconnect=true&amp;useSSL=false" driverName="com.mysql.jdbc.Driver" roleNameCol="role" userCredCol="password" userNameCol="email" userRoleTable="c_user_roles" userTable="c_user"/>
   <!-- connectionURL="jdbc:mysql://localhost:3306/ethiopian_census?user=guido&amp;password=guido" -->
   <!--
     connectionURL="jdbc:mysql://localhost:3306/ethiopian_census"

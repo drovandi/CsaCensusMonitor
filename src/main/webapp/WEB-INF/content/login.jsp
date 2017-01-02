@@ -7,6 +7,7 @@
 <html>
     <head>
         <jsp:include page="/WEB-INF/decorators/header.jsp"/>
+        <link href="${ctx}/css/login.css" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper">
