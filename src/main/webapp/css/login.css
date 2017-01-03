@@ -60,7 +60,7 @@ a {
 }
 .panel-dark>.panel-heading {
     background-color: #34788c!important;
-    font-size: 18pt!important;
+    font-size: 16pt!important;
     color: #fff;
 }
 .panel .panel-heading a {
@@ -82,7 +82,7 @@ a {
 
 .btn {
     border-radius: 3px;
-    font-size: 13px;
+    font-size: 14px;
     border-color: transparent;
     -webkit-appearance: none;
     outline: none!important;

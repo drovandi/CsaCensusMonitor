@@ -9,9 +9,9 @@
 
 <!-- Javascript -->
 <script src="${ctx}/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="${ctx}/js/jquery.subscribe.min.js" type="text/javascript"></script>
 <script src="${ctx}/js/bootstrap.min.js" type="text/javascript"></script>      
 <script src="${ctx}/js/metisMenu.min.js" type="text/javascript"></script>
+<script src="${ctx}/js/csa.js" type="text/javascript"></script>
 
 <!-- CSS -->
 <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">

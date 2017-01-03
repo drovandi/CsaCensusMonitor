@@ -11,7 +11,7 @@
         </div>
         <div class="nav pull-right">
             <a href="${ctx}/logout">
-                <i class="fa fa-sign-out"></i>
+                <i class="fa fa-sign-out fa-fw" style="margin-right:0px"></i> Sign out <strong>${pageContext.request.userPrincipal.name}</strong>
             </a>
         </div>
     </nav>
@@ -26,19 +26,25 @@
                 <li class="nav-heading ">
                     <span>Report List</span>
                 </li>
-                <s:if test="principalProxy.isUserInRole('ADMIN')">
+                <li class="nav-body" class="active">
+                    <a href="${ctx}/secure/main/" title="Home" class="active">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                    <s:if test="principalProxy.isUserInRole('ADMIN')">
                     <li class="nav-body">
                         <a href="#process" title="Monitor Report" data-toggle="collapse" class="collapsed" aria-expanded="false">
                             <i class="fa fa-cogs"></i>
                             <span>Monitor Report</span>
                         </a>
                         <ul id="process" class="nav sidebar-subnav collapse" aria-expanded="false">
-                            <li>
+                            <li id="report-questionnaire">
                                 <a href="${ctx}/secure/report/questionnaire" title="by Questionnaire">
                                     <span>by Questionnaire</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="report-territory">
                                 <a href="${ctx}/secure/report/territory" title="by Territory">
                                     <span>by Territory</span>
                                 </a>
@@ -52,12 +58,12 @@
                         <span>Analysis Report</span>
                     </a>
                     <ul id="data" class="nav sidebar-subnav collapse" aria-expanded="false">
-                        <li>
+                        <li id="report-sex">
                             <a href="${ctx}/secure/report/reportChart" title="Sex Distribution">
                                 <span>Sex Distribution</span>
                             </a>
                         </li>
-                        <li>
+                        <li id="report-birth">
                             <a href="${ctx}/secure/report/birthYear" title="Birth Year Distribution">
                                 <span>Birth Year Distribution</span>
                             </a>

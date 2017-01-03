@@ -11,6 +11,12 @@
         <link rel="stylesheet" href="${ctx}/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="${ctx}/css/datatables.bootstrap.min.css">
         <script>
+
+            $(function () {
+                setMenuActive("report-territory");
+            });
+
+
             function populate() {
                 var dataSet = [
                     ["Awsi Rasu", format(60763), format(3400), formatPercentage(3400, 60763), 300, 90],
@@ -31,7 +37,7 @@
                         {title: "Number of supervisors"}
                     ]
                 });
-                $('option[value=afar]').attr('selected','selected');
+                $('option[value=afar]').attr('selected', 'selected');
             }
         </script>
     </head>

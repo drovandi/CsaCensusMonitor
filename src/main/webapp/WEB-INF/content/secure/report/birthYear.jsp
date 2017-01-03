@@ -6,6 +6,11 @@
 
 <html>
     <head>
+        <script>
+            $(function () {
+                setMenuActive("report-birth");
+            });
+        </script>
     </head>
     <body>
         <section>

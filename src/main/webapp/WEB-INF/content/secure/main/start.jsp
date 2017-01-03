@@ -12,28 +12,18 @@
         <section>
              <div class="content-wrapper">
                 <div class="content-heading">
-                    Territory
-                    <small>Monitor Report</small>
+                    CSA Census
+                    <small>Field work monitor</small>
                 </div>
 
                 <!-- START PANEL-->
                 <div class="panel panel-default">
-                    <div class="panel-heading">Search filters</div>
+                    <div class="panel-heading">Welcome to the monitor system <strong>${pageContext.request.userPrincipal.name}</strong></div>
                     <div class="panel-body">
-                        Ciaoooooone!
+                        Choose a report!
                     </div>
                 </div>
                 <!-- END PANEL-->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Territory Report</div>
-                            <table id="territory" class="display" cellspacing="0" width="100%">
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </section>

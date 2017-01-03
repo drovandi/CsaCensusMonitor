@@ -10,6 +10,9 @@
         <script src="${ctx}/js/monitorChart.js"></script>
         <script type="text/javascript">
             $(function () {
+                
+                setMenuActive("report-questionnaire");
+                
                 $("#questionnaireCount").text(format($("#questionnaireCount").text()));
                 $.ajax({
                     type:'GET',
