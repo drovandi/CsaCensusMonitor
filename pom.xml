@@ -254,7 +254,6 @@
                 <hibernate.default_schema>ethiopian_census</hibernate.default_schema>
                 <log.file>G:/Programmi/Apache Software Foundation/apache-tomcat-7.0.62/logs/csamonitor.log</log.file>
                 <log.level>DEBUG</log.level>
-                <war.name>csaMonitor</war.name>
             </properties>
         </profile>
     </profiles>
