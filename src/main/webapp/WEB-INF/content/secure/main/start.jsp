@@ -8,6 +8,7 @@
     <head>
     </head>
     <body>
+        <!-- START MAIN CONTAINER -->
         <section>
              <div class="content-wrapper">
                 <div class="content-heading">
@@ -36,5 +37,6 @@
 
             </div>
         </section>
+        <!-- END MAIN CONTAINER -->
     </body>
 </html>
