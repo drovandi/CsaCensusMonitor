@@ -63,7 +63,7 @@
                     </a>
                     <ul id="data" class="nav sidebar-subnav collapse" aria-expanded="false">
                         <li id="report-sex">
-                            <a href="${ctx}/secure/report/reportChart" title="Sex Distribution">
+                            <a href="${ctx}/secure/report/sexDistribution" title="Sex Distribution">
                                 <span>Sex Distribution</span>
                             </a>
                         </li>

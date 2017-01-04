@@ -32,7 +32,6 @@ function toggleMenu(){
         w = $(window).width();
     else if ($("aside").hasClass("toggle-off"))
         w = smallWindow+1;
-    console.log(w);
     if (w<=smallWindow) {
         $("aside").addClass("toggle-off");
         $("section").addClass("toggle-off");
@@ -47,4 +46,12 @@ function toggleMenu(){
         $("#toggle-menu").addClass("fa-chevron-left");
     }
     load = false;
+}
+
+function format(n) {
+    return (""+n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function formatPercentage(a,b) {
+    return Math.round(1000.*a/b)/10+"%";
 }

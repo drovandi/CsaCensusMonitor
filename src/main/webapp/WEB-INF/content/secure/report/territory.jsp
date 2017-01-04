@@ -6,17 +6,12 @@
 
 <html>
     <head>
-        <script src="${ctx}/js/jquery.dataTables.min.js"></script>
-        <script src="${ctx}/js/dataTables.bootstrap.min.js"></script>
-        <link rel="stylesheet" href="${ctx}/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="${ctx}/css/datatables.bootstrap.min.css">
+        <script src="${ctx}/js/table/datatables.js"></script>
+        <link rel="stylesheet" href="${ctx}/css/table/datatables.css">
         <script>
-
             $(function () {
                 setMenuActive("report-territory");
             });
-
-
             function populate() {
                 var dataSet = [
                     ["Awsi Rasu", format(60763), format(3400), formatPercentage(3400, 60763), 300, 90],
@@ -26,7 +21,7 @@
                     ["Hari Rasu", format(43735), format(9445), formatPercentage(9445, 43735), 543, 123],
                     ["Argobba special woreda", format(1873), format(344), formatPercentage(344, 1873), 20, 5]
                 ];
-                $('#territory').DataTable({
+                var table = $('#territory').DataTable({
                     data: dataSet,
                     columns: [
                         {title: "Zone"},
@@ -35,8 +30,12 @@
                         {title: "Percentage"},
                         {title: "Number of enumerators"},
                         {title: "Number of supervisors"}
-                    ]
+                    ],
+                    responsive: true,
+                    lengthChange: false,
+                    buttons: ['csv', 'excel', 'pdf']
                 });
+                table.buttons().container().appendTo('#territory_wrapper .col-sm-6:eq(0)');
                 $('option[value=afar]').attr('selected', 'selected');
             }
         </script>
@@ -107,8 +106,10 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">Territory Report</div>
-                            <table id="territory" class="display" cellspacing="0" width="100%">
-                            </table>
+                            <div class="panel-body">
+                                <table id="territory" class="table table-striped" cellspacing="0" width="100%">
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

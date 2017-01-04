@@ -131,28 +131,8 @@
         </web-resource-collection>
         <auth-constraint>
             <role-name>ADMIN</role-name>
+            <role-name>GUEST</role-name>
         </auth-constraint>
     </security-constraint>
     
-    <security-constraint>
-        <web-resource-collection>
-            <url-pattern>/secure/main/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>ADMIN</role-name>
-            <role-name>GUEST</role-name>
-        </auth-constraint>
-    </security-constraint>
-
-    <security-constraint>
-        <web-resource-collection>
-            <url-pattern>/secure/report/reportChart</url-pattern>
-            <url-pattern>/secure/report/birthYear</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>ADMIN</role-name>
-            <role-name>GUEST</role-name>
-        </auth-constraint>
-    </security-constraint>
-
 </web-app>

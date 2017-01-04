@@ -63,10 +63,10 @@ public class ReportAction extends BaseAction {
         return "territory";
     }
 
-    @Action("reportChart")
-    public String reportChart() {
+    @Action("sexDistribution")
+    public String sexDistribution() {
         sexAgeReport = processReportService.getSexByAgeReport();
-        return "reportChart";
+        return "sexDistribution";
     }
     
     @Action("birthYear")

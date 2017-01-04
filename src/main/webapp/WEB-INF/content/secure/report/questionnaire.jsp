@@ -6,20 +6,21 @@
 
 <html>
     <head>
-        <script src="${ctx}/js/chart.js"></script>
-        <script src="${ctx}/js/monitorChart.js"></script>
+        <script src="${ctx}/js/chart/chart.js"></script>
+        <script src="${ctx}/js/chart/csaChart.js"></script>
+        <script src="${ctx}/js/chart/jquery.classyloader.min.js"></script>
         <script type="text/javascript">
             $(function () {
-                
+
                 setMenuActive("report-questionnaire");
-                
+
                 $("#questionnaireCount").text(format($("#questionnaireCount").text()));
                 $.ajax({
-                    type:'GET',
-                    url:'individualCount',
+                    type: 'GET',
+                    url: 'individualCount',
                     dataType: "json",
-                    cache:false,
-                    success:function(data) {
+                    cache: false,
+                    success: function (data) {
                         $("#individualCount").text(format(data.individual));
                     }
                 });
@@ -29,13 +30,13 @@
                     diameter: 70,
                     fontSize: '40px',
                     roundedLine: true,
-                    fontColor: '#34788c',// '#23b7e5',
-                    lineColor: '#34788c',// '#23b7e5',
+                    fontColor: '#34788c', // '#23b7e5',
+                    lineColor: '#34788c', // '#23b7e5',
                     remainingLineColor: 'rgba(200,200,200,0.4)',
                     lineWidth: 10
                 });
                 drawChart(
-                        ["Addis Ababa","Afar","Amhara","Benishangul-Gumuz","Dire Dawa","Gambela","Harari","Oromia","Somali","Southern","Tigray"],
+                        ["Addis Ababa", "Afar", "Amhara", "Benishangul-Gumuz", "Dire Dawa", "Gambela", "Harari", "Oromia", "Somali", "Southern", "Tigray"],
                         [
             <s:property value="percentage(questionnaireReport.COMPLETED_Addis_Ababa,questionnaireReport.NOT_COMPLETED_Addis_Ababa)" />,
             <s:property value="percentage(questionnaireReport.COMPLETED_Afar,questionnaireReport.NOT_COMPLETED_Afar+1)" />,
@@ -48,7 +49,7 @@
             <s:property value="percentage(questionnaireReport.COMPLETED_Somali,questionnaireReport.NOT_COMPLETED_Somali+1)" />,
             <s:property value="percentage(questionnaireReport.COMPLETED_Southern,questionnaireReport.NOT_COMPLETED_Southern+1)" />,
             <s:property value="percentage(questionnaireReport.COMPLETED_Tigray,questionnaireReport.NOT_COMPLETED_Tigray+1)" />
-                ]);
+                        ]);
             });
         </script>
     </head>
@@ -60,67 +61,70 @@
                     <small>Monitor Report</small>
                 </div>
 
-                <div class="row">
+                <div class="content-body">
 
-                    <!-- START WIDGET -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="panel widget bg-purple">
-                            <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-purple-dark pv-lg">
-                                    <em class="fa fa-newspaper-o fa-3x"></em>
-                                </div>
-                                <div class="col-xs-8 pv-lg">
-                                    <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.household" /></div>
-                                    <div class="text-uppercase">Questionnaires</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END WIDGET -->
+                    <div class="row">
 
-                    <!-- START WIDGET -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="panel widget bg-primary">
-                            <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
-                                    <em class="fa fa-user fa-3x"></em>
-                                </div>
-                                <div class="col-xs-8 pv-lg">
-                                    <div class="h2 mt0" id="individualCount"><i class="fa fa-cog fa-spin fa-fw"></i></div>
-                                    <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
-                                    <div class="text-uppercase">Individuals</div>
+                        <!-- START WIDGET -->
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="panel widget bg-purple">
+                                <div class="row row-table">
+                                    <div class="col-xs-4 text-center bg-purple-dark ">
+                                        <em class="fa fa-newspaper-o fa-3x"></em>
+                                    </div>
+                                    <div class="col-xs-8 widget-content">
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.household" /></div>
+                                        <div class="text-uppercase">Questionnaires</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- END WIDGET -->
+                        <!-- END WIDGET -->
 
-                </div>
-
-                <div class="row">
-
-                    <!-- START WIDGET -->
-                    <div class="col-lg-7">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="text-info">Regional Distribution</div>
-                                <canvas id="chartjs-barchart" width="500" height="400"></canvas>
+                        <!-- START WIDGET -->
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="panel widget bg-blue">
+                                <div class="row row-table">
+                                    <div class="col-xs-4 text-center bg-blue-dark pv-lg">
+                                        <em class="fa fa-user fa-3x"></em>
+                                    </div>
+                                    <div class="col-xs-8 widget-content">
+                                        <div class="h2 mt0" id="individualCount"><i class="fa fa-cog fa-spin fa-fw"></i></div>
+                                        <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
+                                        <div class="text-uppercase">Individuals</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- END WIDGET -->
+                        <!-- END WIDGET -->
 
-                    <!-- START WIDGET -->
-                    <div class="col-lg-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="text-info">Returned Questionnaires</div>
-                                <canvas class="totalPercentage"></canvas>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- START WIDGET -->
+                        <div class="col-lg-7">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="text-info">Regional Distribution</div>
+                                    <canvas id="chartjs-barchart" width="500" height="400"></canvas>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- END WIDGET -->
+                        <!-- END WIDGET -->
 
+                        <!-- START WIDGET -->
+                        <div class="col-lg-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body text-center">
+                                    <div class="text-info">Returned Questionnaires</div>
+                                    <canvas class="totalPercentage"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END WIDGET -->
+
+                    </div>
                 </div>
             </div>
         </section>
