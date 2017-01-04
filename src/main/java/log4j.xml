@@ -47,7 +47,7 @@
     </logger>
 
     <logger name="et.gov.csa">
-        <level value="DEBUG" />
+        <level value="${log.level}" />
     </logger>
 
     <root>

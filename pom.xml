@@ -241,7 +241,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <jdbc.url>jdbc:mysql://localhost:3306</jdbc.url>
+                <jdbc.url>jdbc:mysql://localhost:3306/ethiopian_census?useSSL=false</jdbc.url>
                 <jdbc.username>csamonitor</jdbc.username>
                 <jdbc.password>cs4m0n1t0r</jdbc.password>
                 <jdbc.maxActive>10</jdbc.maxActive>
