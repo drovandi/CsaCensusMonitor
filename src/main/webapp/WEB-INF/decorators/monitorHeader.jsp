@@ -7,11 +7,12 @@
 <header class="topnavbar-wrapper">
     <nav role="navigation" class="navbar topnavbar">
         <div class="nav pull-left">
-            <i class="fa fa-dashboard"></i> CSA Census Monitor
+            <i class="fa fa-dashboard"></i> CSA <span class="small-screen-hide">Census Monitor</span>
         </div>
-        <div class="nav pull-right">
+        <div class="nav pull-right small-screen">
             <a href="${ctx}/logout">
-                <i class="fa fa-sign-out fa-fw" style="margin-right:0px"></i> Sign out <strong>${pageContext.request.userPrincipal.name}</strong>
+                <i class="fa fa-sign-out fa-fw" style="margin-right:0px"></i>
+                <span class="small-screen-hide">Sign out <strong>${pageContext.request.userPrincipal.name}</strong></span>
             </a>
         </div>
     </nav>
@@ -21,9 +22,12 @@
 <!-- START LEFT SIDE BAR -->
 <aside class="aside">
     <div class="aside-inner">
+        <span class="toggle-menu" onclick="toggleMenu()">
+            <i id="toggle-menu" class="fa"></i>
+        </span>
         <nav data-sidebar-anyclick-close="" class="sidebar">
             <ul class="nav">
-                <li class="nav-heading ">
+                <li class="nav-heading">
                     <span>Report List</span>
                 </li>
                 <li class="nav-body" class="active">
@@ -32,7 +36,7 @@
                         <span>Home</span>
                     </a>
                 </li>
-                    <s:if test="principalProxy.isUserInRole('ADMIN')">
+                <s:if test="principalProxy.isUserInRole('ADMIN')">
                     <li class="nav-body">
                         <a href="#process" title="Monitor Report" data-toggle="collapse" class="collapsed" aria-expanded="false">
                             <i class="fa fa-cogs"></i>

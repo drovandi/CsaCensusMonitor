@@ -1,8 +1,12 @@
+var smallWindow = 560;
+
 $(function () {
     //Start metis menu 
     $('#side-menu').metisMenu({
         toggle: false
     });
+    
+    toggleMenu();
 
 });
 
@@ -19,4 +23,28 @@ function setMenuActive(id){
     
     $("#" + id).addClass("active");
     $("#" + id + " a").addClass('active').parent().parent().addClass('in').parent();
+}
+
+var load = true;
+function toggleMenu(){
+    var w = 0;
+    if (load)
+        w = $(window).width();
+    else if ($("aside").hasClass("toggle-off"))
+        w = smallWindow+1;
+    console.log(w);
+    if (w<=smallWindow) {
+        $("aside").addClass("toggle-off");
+        $("section").addClass("toggle-off");
+        $("footer").addClass("toggle-off");
+        $("#toggle-menu").removeClass("fa-chevron-left");
+        $("#toggle-menu").addClass("fa-chevron-right");
+    } else {
+        $("aside").removeClass("toggle-off");
+        $("section").removeClass("toggle-off");
+        $("footer").removeClass("toggle-off");
+        $("#toggle-menu").removeClass("fa-chevron-right");
+        $("#toggle-menu").addClass("fa-chevron-left");
+    }
+    load = false;
 }
