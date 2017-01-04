@@ -19,4 +19,4 @@
 <link href="${ctx}/css/csa.css"  rel="stylesheet">
 
 <!-- Fontawesome -->
-<link href="${ctx}/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="${ctx}/css/font-awesome.min.css" rel="stylesheet">
