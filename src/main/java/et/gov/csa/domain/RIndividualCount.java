@@ -1,7 +1,6 @@
 
 package et.gov.csa.domain;
 
-import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +17,7 @@ public class RIndividualCount implements Serializable {
 
     private static final long serialVersionUID = 5859143976887320410L;
 
-    @Expose private int individual;
+    private int individual;
         
     @Id
     @Column(name = "INDIVIDUAL", unique = true, nullable = false)

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/CsaCensusMonitor" useHttpOnly="true">
   <Realm className="org.apache.catalina.realm.LockOutRealm">
-    <Realm className="org.apache.catalina.realm.JDBCRealm" connectionName="csamonitor" connectionPassword="cs4m0n1t0r" connectionURL="jdbc:mysql://localhost:3306/ethiopian_census?autoReconnect=true&amp;useSSL=false" driverName="com.mysql.jdbc.Driver" roleNameCol="role" userCredCol="password" userNameCol="email" userRoleTable="c_user_roles" userTable="c_user">
+    <Realm connectionName="${jdbc.username}" connectionPassword="${jdbc.password}" connectionURL="${jdbc.url}"
+           className="org.apache.catalina.realm.JDBCRealm" driverName="com.mysql.cj.jdbc.Driver"
+           roleNameCol="role" userCredCol="password" userNameCol="email" userRoleTable="c_user_roles" userTable="c_user" validationQuery="select 1">
       <CredentialHandler algorithm="SHA-256" className="org.apache.catalina.realm.MessageDigestCredentialHandler" saltLength="0"/>
     </Realm>
   </Realm>

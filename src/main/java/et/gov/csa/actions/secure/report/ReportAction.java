@@ -1,8 +1,9 @@
 
 package et.gov.csa.actions.secure.report;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.opensymphony.xwork2.ActionContext;
 import et.gov.csa.actions.*;
 import et.gov.csa.domain.RIndividualCount;
@@ -11,12 +12,12 @@ import et.gov.csa.domain.RSexByAge;
 import et.gov.csa.service.ProcessReportService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -27,7 +28,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ReportAction extends BaseAction {
 
     private static final long serialVersionUID = 827880151339521780L;
-    private static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create();
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReportAction.class);
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final ObjectWriter WRITER = MAPPER.writer();
+    private static final ObjectReader READER = MAPPER.reader();
     
     @Autowired private ProcessReportService processReportService;
     
@@ -51,9 +55,9 @@ public class ReportAction extends BaseAction {
         HttpServletResponse response = (HttpServletResponse)ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
         try (PrintWriter out = response.getWriter()) {
             response.setContentType("application/json;charset=UTF-8");
-            out.print(GSON.toJson(individualCountReport));
+            out.print(WRITER.writeValueAsString(individualCountReport));
         } catch (IOException ex) {
-            Logger.getLogger(ReportAction.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.error("Impossible to create Json", ex);
         }
         return null;
     }
