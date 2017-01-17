@@ -76,6 +76,19 @@
                 </li>
                 <s:if test="principalProxy.isUserInRole('ADMIN')">
                     <li class="nav-body">
+                        <a href="#cspro2sql" title="CsPro2Sql" data-toggle="collapse" class="collapsed" aria-expanded="false">
+                            <i class="fa fa-bug"></i>
+                            <span>CsPro2Sql</span>
+                        </a>
+                        <ul id="cspro2sql" class="nav sidebar-subnav collapse" aria-expanded="false">
+                            <li id="report-cspro2sqlError">
+                                <a href="${ctx}/secure/report/cspro2sqlError" title="Load errors">
+                                    <span>Load errors</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-body">
                         <a href="#admin" title="Administration" data-toggle="collapse" class="collapsed" aria-expanded="false">
                             <i class="fa fa-briefcase"></i>
                             <span>Administration</span>

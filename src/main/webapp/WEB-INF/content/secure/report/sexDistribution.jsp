@@ -10,6 +10,7 @@
         <script src="${ctx}/js/chart/csaChart.js"></script>
         <script type="text/javascript">
             $(function () {
+                setMenuActive("report-sex");
                 drawChart(
                         [
             "0 to 4",

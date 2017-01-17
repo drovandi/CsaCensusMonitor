@@ -6,12 +6,15 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.opensymphony.xwork2.ActionContext;
 import et.gov.csa.actions.*;
+import et.gov.csa.domain.LoadError;
 import et.gov.csa.domain.RIndividualCount;
 import et.gov.csa.domain.RQuestionnaire;
 import et.gov.csa.domain.RSexByAge;
+import et.gov.csa.service.CsPro2SqlService;
 import et.gov.csa.service.ProcessReportService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
@@ -34,9 +37,11 @@ public class ReportAction extends BaseAction {
     private static final ObjectReader READER = MAPPER.reader();
     
     @Autowired private ProcessReportService processReportService;
+    @Autowired private CsPro2SqlService csPro2SqlService;
     
     private RQuestionnaire questionnaireReport;
     private RSexByAge sexAgeReport;
+    private List<LoadError> loadErrors;
     
     @Action("")
     public String start() {
@@ -78,6 +83,12 @@ public class ReportAction extends BaseAction {
         return "birthYear";
     }
 
+    @Action("cspro2sqlError")
+    public String cspro2sqlError() {
+        loadErrors = csPro2SqlService.getLoadErrors();
+        return "cspro2sqlError";
+    }
+
     public double percentage(int a, int b) {
         if (a+b==0) return 0;
         return Math.round(1000.*a/(a+b))/10.;
@@ -89,6 +100,10 @@ public class ReportAction extends BaseAction {
 
     public RSexByAge getSexAgeReport() {
         return sexAgeReport;
+    }
+
+    public List<LoadError> getLoadErrors() {
+        return loadErrors;
     }
     
 }

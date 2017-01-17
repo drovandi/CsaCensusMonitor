@@ -248,7 +248,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <jdbc.url>jdbc:mysql://localhost:3306/ethiopian_census?useSSL=false</jdbc.url>
+                <jdbc.url>jdbc:mysql://localhost:3306/csa_pilot_2016?useSSL=false</jdbc.url>
                 <jdbc.username>csamonitor</jdbc.username>
                 <jdbc.password>cs4m0n1t0r</jdbc.password>
                 <jdbc.maxActive>10</jdbc.maxActive>
@@ -258,7 +258,7 @@
                 <struts.devMode>true</struts.devMode>
                 <hibernate.format_sql>true</hibernate.format_sql>
                 <hibernate.show_sql>true</hibernate.show_sql>
-                <hibernate.default_schema>ethiopian_census</hibernate.default_schema>
+                <hibernate.default_schema>csa_pilot_2016</hibernate.default_schema>
                 <log.file>C:/Program Files/Apache/apache-tomcat-8.5.6/logs/csamonitor.log</log.file>
                 <log.level>DEBUG</log.level>
             </properties>
