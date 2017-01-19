@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author Istat Cooperation Unit
  */
 @Entity
-@Table(name = "R_SEX_BY_AGE")
+@Table(name = "MR_SEX_BY_AGE")
 public class RSexByAge implements Serializable {
 
     private static final long serialVersionUID = -6827814928776184328L;

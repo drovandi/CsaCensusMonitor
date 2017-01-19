@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author Istat Cooperation Unit
  */
 @Entity
-@Table(name = "R_QUESTIONNAIRE")
+@Table(name = "MR_QUESTIONNAIRE")
 public class RQuestionnaire implements Serializable {
 
     private static final long serialVersionUID = 5908852901662100276L;
