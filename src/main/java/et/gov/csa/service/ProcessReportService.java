@@ -18,15 +18,10 @@ import org.springframework.stereotype.Service;
 public class ProcessReportService {
     
     @Autowired private RQuestionnaireDao rQuestionnaireDao;
-    @Autowired private RSexByAgeDao rSexByAgeDao;
     @Autowired private RIndividualCountDao rIndividualCountDao;
     
     public RQuestionnaire getQuestionnaireReport() {
         return rQuestionnaireDao.getAll().get(0);
-    }
-    
-    public RSexByAge getSexByAgeReport() {
-        return rSexByAgeDao.getAll().get(0);
     }
     
     public RIndividualCount getIndividualCountReport() {

@@ -24,3 +24,22 @@ var drawChart = function () {
     new Chart(barChart).Bar(barData);
 
 };
+
+var drawPie = function (values) {
+    var pieChart = document.getElementById("chartjs-piechart").getContext("2d");
+    var data = [];
+    var colors = ["#23b7e5","#23b7e5","#f44336","#f44336"];
+    for (var i = 0; i < values.length; i++) {
+        data.push({
+            value: values[i][1],
+            label: values[i][0],
+            color: colors[i%colors.length]
+        });
+    }
+    var options = {
+        segmentShowStroke: false,
+        animateScale: false,
+        animateRotate: false
+    };
+    new Chart(pieChart).Pie(data, options);
+};

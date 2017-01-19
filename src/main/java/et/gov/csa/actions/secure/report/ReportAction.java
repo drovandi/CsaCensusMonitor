@@ -4,19 +4,16 @@ package et.gov.csa.actions.secure.report;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.opensymphony.xwork2.ActionContext;
-import et.gov.csa.actions.*;
+import et.gov.csa.actions.BaseAction;
 import et.gov.csa.domain.LoadError;
-import et.gov.csa.domain.RIndividualCount;
-import et.gov.csa.domain.RQuestionnaire;
+import et.gov.csa.domain.RIndividualInfo;
+import et.gov.csa.domain.RQuestionnaireInfo;
+import et.gov.csa.domain.RRegionalArea;
+import et.gov.csa.domain.RReligion;
 import et.gov.csa.domain.RSexByAge;
 import et.gov.csa.service.CsPro2SqlService;
-import et.gov.csa.service.ProcessReportService;
-import java.io.IOException;
-import java.io.PrintWriter;
+import et.gov.csa.service.DataReportService;
 import java.util.List;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.slf4j.Logger;
@@ -36,10 +33,13 @@ public class ReportAction extends BaseAction {
     private static final ObjectWriter WRITER = MAPPER.writer();
     private static final ObjectReader READER = MAPPER.reader();
     
-    @Autowired private ProcessReportService processReportService;
+    @Autowired private DataReportService dataReportService;
     @Autowired private CsPro2SqlService csPro2SqlService;
     
-    private RQuestionnaire questionnaireReport;
+    private RQuestionnaireInfo questionnaireReport;
+    private RRegionalArea regionalAreaReport;
+    private List<RReligion> religionReport;
+    private RIndividualInfo populationReport;
     private RSexByAge sexAgeReport;
     private List<LoadError> loadErrors;
     
@@ -50,21 +50,9 @@ public class ReportAction extends BaseAction {
     
     @Action("questionnaire")
     public String questionnaire() {
-        questionnaireReport = processReportService.getQuestionnaireReport();
+        questionnaireReport = dataReportService.getQuestionnaireReport();
+        regionalAreaReport = dataReportService.getRegionalAreaReport();
         return "questionnaire";
-    }
-    
-    @Action("individualCount")
-    public String individualCount() {
-        RIndividualCount individualCountReport = processReportService.getIndividualCountReport();
-        HttpServletResponse response = (HttpServletResponse)ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
-        try (PrintWriter out = response.getWriter()) {
-            response.setContentType("application/json;charset=UTF-8");
-            out.print(WRITER.writeValueAsString(individualCountReport));
-        } catch (IOException ex) {
-            LOGGER.error("Impossible to create Json", ex);
-        }
-        return null;
     }
     
     @Action("territory")
@@ -72,17 +60,26 @@ public class ReportAction extends BaseAction {
         return "territory";
     }
 
+    @Action("population")
+    public String population() {
+        populationReport = dataReportService.getPopulationReport();
+        return "population";
+    }
+    
     @Action("sexDistribution")
     public String sexDistribution() {
-        sexAgeReport = processReportService.getSexByAgeReport();
+        populationReport = dataReportService.getPopulationReport();
+        sexAgeReport = dataReportService.getSexByAgeReport();
         return "sexDistribution";
     }
     
-    @Action("birthYear")
-    public String birthYear() {
-        return "birthYear";
+    @Action("religion")
+    public String religion() {
+        populationReport = dataReportService.getPopulationReport();
+        religionReport = dataReportService.getReligionReport();
+        return "questionnaire";
     }
-
+    
     @Action("cspro2sqlError")
     public String cspro2sqlError() {
         loadErrors = csPro2SqlService.getLoadErrors();
@@ -99,12 +96,24 @@ public class ReportAction extends BaseAction {
         return Math.round(1000.*a/(a+b))/10.;
     }
     
-    public RQuestionnaire getQuestionnaireReport() {
+    public RQuestionnaireInfo getQuestionnaireReport() {
         return questionnaireReport;
     }
 
     public RSexByAge getSexAgeReport() {
         return sexAgeReport;
+    }
+
+    public RIndividualInfo getPopulationReport() {
+        return populationReport;
+    }
+
+    public RRegionalArea getRegionalAreaReport() {
+        return regionalAreaReport;
+    }
+
+    public List<RReligion> getReligionReport() {
+        return religionReport;
     }
 
     public List<LoadError> getLoadErrors() {

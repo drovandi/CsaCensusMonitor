@@ -30,7 +30,7 @@
                 <div class="panel panel-dark panel-flat">
                     <div class="panel-heading text-center">
                         <a href="#">
-                            <i class="fa fa-dashboard fa-fw"></i> CSA Census Monitor
+                            <i class="fa fa-rocket fa-fw"></i> CSA Census Monitor
                         </a>
                     </div>
                     <div class="panel-body">

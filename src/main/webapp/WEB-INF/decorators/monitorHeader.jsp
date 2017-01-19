@@ -7,7 +7,7 @@
 <header class="topnavbar-wrapper">
     <nav role="navigation" class="navbar topnavbar">
         <div class="nav pull-left">
-            <i class="fa fa-dashboard"></i> CSA <span class="small-screen-hide">Census Monitor</span>
+            <i class="fa fa-rocket"></i> CSA <span class="small-screen-hide">Census Monitor</span>
         </div>
         <div class="nav pull-right small-screen">
             <a href="${ctx}/logout">
@@ -65,7 +65,7 @@
                     </a>
                     <ul id="data" class="nav sidebar-subnav collapse" aria-expanded="false">
                         <li id="report-population">
-                            <a href="${ctx}/secure/report/population" title="Sex Distribution">
+                            <a href="${ctx}/secure/report/population" title="Population">
                                 <span>Population</span>
                             </a>
                         </li>
@@ -74,9 +74,14 @@
                                <span>Sex Distribution</span>
                            </a>
                         </li>
-                        <li id="report-birth">
-                            <a href="${ctx}/secure/report/birthYear" title="Birth Year Distribution">
-                                <span>Birth Year Distribution</span>
+                        <li id="report-questionnaire">
+                            <a href="${ctx}/secure/report/questionnaire" title="Questionnaire">
+                                <span>Questionnaire</span>
+                            </a>
+                        </li>
+                        <li id="report-religion">
+                            <a href="${ctx}/secure/report/religion" title="Religion">
+                                <span>Religion</span>
                             </a>
                         </li>
                     </ul>

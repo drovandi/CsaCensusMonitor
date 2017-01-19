@@ -31,7 +31,7 @@
                             <div class="panel widget bg-purple">
                                 <div class="row row-table">
                                     <div class="col-xs-4 text-center bg-purple-dark ">
-                                        <em class="fa fa-users fa-3x"></em>
+                                        <em class="fa fa-child fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
                                         <div class="h2 mt0" id="questionnaireCount">
@@ -52,8 +52,7 @@
                                         <em class="fa fa-hourglass-2 fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="populationReport.age_avg" /></div>
-                                        <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',populationReport.age_avg)"/></div>
                                         <div class="text-uppercase">Average Age</div>
                                     </div>
                                 </div>
@@ -108,8 +107,7 @@
                                         <em class="fa fa-hourglass-2 fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="populationReport.age_avg_male" /></div>
-                                        <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',populationReport.age_avg_male)"/></div>
                                         <div class="text-uppercase">Male Avg Age</div>
                                     </div>
                                 </div>
@@ -164,8 +162,7 @@
                                         <em class="fa fa-hourglass-2 fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="populationReport.age_avg_female" /></div>
-                                        <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',populationReport.age_avg_female)"/></div>
                                         <div class="text-uppercase">Female Avg Age</div>
                                     </div>
                                 </div>

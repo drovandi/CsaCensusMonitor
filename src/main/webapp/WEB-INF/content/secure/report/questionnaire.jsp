@@ -11,45 +11,18 @@
         <script src="${ctx}/js/chart/jquery.classyloader.min.js"></script>
         <script type="text/javascript">
             $(function () {
-
                 setMenuActive("report-questionnaire");
-
-                $("#questionnaireCount").text(format($("#questionnaireCount").text()));
-                $.ajax({
-                    type: 'GET',
-                    url: 'individualCount',
-                    dataType: "json",
-                    cache: false,
-                    success: function (data) {
-                        $("#individualCount").text(format(data.individual));
-                    }
-                });
                 $('.totalPercentage').ClassyLoader({
-                    percentage: <s:property value="100.*questionnaireReport.completed/questionnaireReport.household" />,
+                    percentage: <s:property value="100.*regionalAreaReport.ea/256" />,
                     speed: 20,
                     diameter: 70,
                     fontSize: '40px',
                     roundedLine: true,
-                    fontColor: '#34788c', // '#23b7e5',
-                    lineColor: '#34788c', // '#23b7e5',
+                    fontColor: '#34788c',
+                    lineColor: '#34788c',
                     remainingLineColor: 'rgba(200,200,200,0.4)',
                     lineWidth: 10
                 });
-                drawChart(
-                        ["Addis Ababa", "Afar", "Amhara", "Benishangul-Gumuz", "Dire Dawa", "Gambela", "Harari", "Oromia", "Somali", "Southern", "Tigray"],
-                        [
-            <s:property value="percentage(questionnaireReport.COMPLETED_Addis_Ababa,questionnaireReport.NOT_COMPLETED_Addis_Ababa)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Afar,questionnaireReport.NOT_COMPLETED_Afar+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Amhara,questionnaireReport.NOT_COMPLETED_Amhara+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Benishangul_Gumuz,questionnaireReport.NOT_COMPLETED_Benishangul_Gumuz+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Dire_Dawa,questionnaireReport.NOT_COMPLETED_Dire_Dawa+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Gambela,questionnaireReport.NOT_COMPLETED_Gambela+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Harari,questionnaireReport.NOT_COMPLETED_Harari+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Oromia,questionnaireReport.NOT_COMPLETED_Oromia+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Somali,questionnaireReport.NOT_COMPLETED_Somali+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Southern,questionnaireReport.NOT_COMPLETED_Southern+1)" />,
-            <s:property value="percentage(questionnaireReport.COMPLETED_Tigray,questionnaireReport.NOT_COMPLETED_Tigray+1)" />
-                        ]);
             });
         </script>
     </head>
@@ -58,7 +31,7 @@
             <div class="content-wrapper">
                 <div class="content-heading">
                     Questionnaires
-                    <small>Monitor Report</small>
+                    <small>Analysis Report</small>
                 </div>
 
                 <div class="content-body">
@@ -73,8 +46,19 @@
                                         <em class="fa fa-newspaper-o fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.total" /></div>
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0}',questionnaireReport.total)"/></div>
                                         <div class="text-uppercase">Questionnaires</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel widget bg-male">
+                                <div class="row row-table">
+                                    <div class="col-xs-4 text-center bg-male-dark ">
+                                        <em class="fa fa-male fa-3x"></em>
+                                    </div>
+                                    <div class="col-xs-8 widget-content">
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',questionnaireReport.avg_individual_male)"/></div>
+                                        <div class="text-uppercase">Avg Male</div>
                                     </div>
                                 </div>
                             </div>
@@ -86,56 +70,27 @@
                             <div class="panel widget bg-blue">
                                 <div class="row row-table">
                                     <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                        <em class="fa fa-user fa-3x"></em>
+                                        <em class="fa fa-child fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual" /></div>
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',questionnaireReport.avg_individual)"/></div>
                                         <div class="text-uppercase">Avg Individuals</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- END WIDGET -->
-
-                    </div>
-
-                    <div class="row">
-
-                        <!-- START WIDGET -->
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="panel widget bg-male">
-                                <div class="row row-table">
-                                    <div class="col-xs-4 text-center bg-male-dark ">
-                                        <em class="fa fa-newspaper-o fa-3x"></em>
-                                    </div>
-                                    <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual_male" /></div>
-                                        <div class="text-uppercase">Avg Male</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END WIDGET -->
-
-                        <!-- START WIDGET -->
-                        <div class="col-lg-3 col-sm-6">
                             <div class="panel widget bg-female">
                                 <div class="row row-table">
                                     <div class="col-xs-4 text-center bg-female-dark pv-lg">
-                                        <em class="fa fa-user fa-3x"></em>
+                                        <em class="fa fa-female fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual_female" /></div>
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0.00}',questionnaireReport.avg_individual_female)"/></div>
                                         <div class="text-uppercase">Avg Female</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- END WIDGET -->
-
-                    </div>
-
-                    <div class="row">
 
                         <!-- START WIDGET -->
                         <div class="col-lg-3">
@@ -147,8 +102,9 @@
                             </div>
                         </div>
                         <!-- END WIDGET -->
-
+                        
                     </div>
+
                 </div>
             </div>
         </section>
