@@ -6,21 +6,26 @@
 
 <html>
     <head>
+        <script>
+            $(function () {
+                setMenuActive("todo");
+            });
+        </script>
     </head>
     <body>
         <!-- START MAIN CONTAINER -->
         <section>
              <div class="content-wrapper">
                 <div class="content-heading">
-                    Census Pilot Survey - 2016 
+                    Census Pilot Survey - 2016
                     <small>Field work monitor</small>
                 </div>
 
                 <!-- START PANEL-->
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome to the monitor system <strong>${pageContext.request.userPrincipal.name}</strong></div>
+                    <div class="panel-heading">We apologize <strong>${pageContext.request.userPrincipal.name}</strong></div>
                     <div class="panel-body">
-                        Choose a report from the left side menu!
+                        <span class="todo-msg">Report is under construction!</span>
                     </div>
                 </div>
                 <!-- END PANEL-->

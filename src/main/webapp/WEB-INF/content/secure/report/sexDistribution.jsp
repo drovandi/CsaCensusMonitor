@@ -55,7 +55,7 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                    Population
+                    Census Pilot Survey - 2016 
                     <small>Analysis Report</small>
                 </div>
 
@@ -63,11 +63,18 @@
                     <!-- START WIDGET -->
                     <div class="col-lg-8">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Male/Female Distribution
+                            <div class="panel-heading chart-heading">
+                                <span>Male/Female Distribution</span>
+                                <span class="pull-right legend">
+                                    <ul>
+                                        <li><i class="fa fa-square fa-fw" style="color:#23b7e5"></i><span>Male</span></li>
+                                        <li><i class="fa fa-square fa-fw" style="color:#f44336"></i><span>Female</span></li>
+                                    </ul>
+                                </span>
                             </div>
                             <div class="panel-body">
                                 <canvas id="chartjs-barchart" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+                                <div id="chartjs-barchart-legend"></div>
                                 <!--canvas id="chartjs-barchart" width="487" height="243" style="width: 487px; height: 243px;"></canvas-->
                             </div>
                         </div>

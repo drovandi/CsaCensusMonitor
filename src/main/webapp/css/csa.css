@@ -125,9 +125,9 @@ a:hover{
 }
 
 .toggle-menu {
-    font-size: 20px;
+    font-size: 18px;
     left: 188px;
-    top: 77px;
+    top: 78px;
     position: absolute;
     z-index: 200;
     cursor: pointer;
@@ -253,6 +253,29 @@ aside.toggle-off .active {
 section, footer {
     min-width: 400px;
 }
+
+/* START TODO PAGE */
+.todo-msg{
+    font-size: 18px;
+}
+/* END TODO PAGE */
+
+/* START CHART STYLE */
+.chart-heading{
+    font-size: 18px!important;
+}
+.legend{
+    font-size: 12px;
+}
+
+.legend ul{
+    list-style: none;
+}
+.legend span{
+    padding: 5px;
+}
+
+/* END CHART STYLE */
 
 /* START DATA TABLE */
 table.dataTable.no-footer, th {
