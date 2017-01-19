@@ -43,11 +43,11 @@
                             <div class="panel widget bg-purple">
                                 <div class="row row-table">
                                     <div class="col-xs-4 text-center bg-purple-dark ">
-                                        <em class="fa fa-newspaper-o fa-3x"></em>
+                                        <em class="fa fa-file-text-o fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
                                         <div class="h2 mt0" id="questionnaireCount"><s:property value="getFormatted('{0,number,#,##0}',questionnaireReport.total)"/></div>
-                                        <div class="text-uppercase">Questionnaires</div>
+                                        <div class="text-uppercase">Households</div>
                                     </div>
                                 </div>
                             </div>

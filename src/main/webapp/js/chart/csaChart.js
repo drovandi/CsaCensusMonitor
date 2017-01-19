@@ -41,7 +41,7 @@ var drawPie = function (values) {
         animationEasing: 'easeInOutQuart',
         animationSteps: 80
     };
-    new Chart(pieChart).Pie(data, options);
+    new Chart(pieChart).Doughnut(data, options);
     var legend = $("#chartjs-piechart-legend");
     var ul = $(document.createElement("ul"));
     for (var i = 0; i < values.length; i++) {
