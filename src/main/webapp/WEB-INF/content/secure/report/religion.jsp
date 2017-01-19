@@ -30,6 +30,8 @@
                     ],
                     responsive: true,
                     lengthChange: false,
+                    pageLength: 20,
+                    bPaginate: false,
                     order: [[ 1, "desc" ]],
                     buttons: ['csv', 'excel', 'pdf']
                 });

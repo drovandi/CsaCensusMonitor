@@ -18,7 +18,7 @@
              <div class="content-wrapper">
                 <div class="content-heading">
                     Census Pilot Survey - 2016
-                    <small>Field work monitor</small>
+                    <small>Monitor report</small>
                 </div>
 
                 <!-- START PANEL-->

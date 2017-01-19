@@ -25,40 +25,41 @@
                             "76 to 99"
                         ],
                         [
-                            <s:property value="sexAgeGroupReport.male_0_4" />,
-                            <s:property value="sexAgeGroupReport.male_5_10" />,
-                            <s:property value="sexAgeGroupReport.male_11_16" />,
-                            <s:property value="sexAgeGroupReport.male_17_25" />,
-                            <s:property value="sexAgeGroupReport.male_26_34" />,
-                            <s:property value="sexAgeGroupReport.male_35_45" />,
-                            <s:property value="sexAgeGroupReport.male_46_55" />,
-                            <s:property value="sexAgeGroupReport.male_56_65" />,
-                            <s:property value="sexAgeGroupReport.male_66_75" />,
-                            <s:property value="sexAgeGroupReport.male_76_99" />
+            <s:property value="sexAgeGroupReport.male_0_4" />,
+            <s:property value="sexAgeGroupReport.male_5_10" />,
+            <s:property value="sexAgeGroupReport.male_11_16" />,
+            <s:property value="sexAgeGroupReport.male_17_25" />,
+            <s:property value="sexAgeGroupReport.male_26_34" />,
+            <s:property value="sexAgeGroupReport.male_35_45" />,
+            <s:property value="sexAgeGroupReport.male_46_55" />,
+            <s:property value="sexAgeGroupReport.male_56_65" />,
+            <s:property value="sexAgeGroupReport.male_66_75" />,
+            <s:property value="sexAgeGroupReport.male_76_99" />
                         ],
                         [
-                            <s:property value="sexAgeGroupReport.female_0_4" />,
-                            <s:property value="sexAgeGroupReport.female_5_10" />,
-                            <s:property value="sexAgeGroupReport.female_11_16" />,
-                            <s:property value="sexAgeGroupReport.female_17_25" />,
-                            <s:property value="sexAgeGroupReport.female_26_34" />,
-                            <s:property value="sexAgeGroupReport.female_35_45" />,
-                            <s:property value="sexAgeGroupReport.female_46_55" />,
-                            <s:property value="sexAgeGroupReport.female_56_65" />,
-                            <s:property value="sexAgeGroupReport.female_66_75" />,
-                            <s:property value="sexAgeGroupReport.female_76_99" />
+            <s:property value="sexAgeGroupReport.female_0_4" />,
+            <s:property value="sexAgeGroupReport.female_5_10" />,
+            <s:property value="sexAgeGroupReport.female_11_16" />,
+            <s:property value="sexAgeGroupReport.female_17_25" />,
+            <s:property value="sexAgeGroupReport.female_26_34" />,
+            <s:property value="sexAgeGroupReport.female_35_45" />,
+            <s:property value="sexAgeGroupReport.female_46_55" />,
+            <s:property value="sexAgeGroupReport.female_56_65" />,
+            <s:property value="sexAgeGroupReport.female_66_75" />,
+            <s:property value="sexAgeGroupReport.female_76_99" />
                         ]);
                 drawChart("chartjs-barchart-2",
                         [
-                            <s:iterator value="sexAgeReport">
-                                "<s:property value="age" />",
-                            </s:iterator>
+            <s:iterator value="sexAgeReport">
+                            "<s:property value="age" />",
+            </s:iterator>
                         ],
                         [
-                            <s:iterator value="sexAgeReport">
-                                <s:property value="total" />,
-                            </s:iterator>
+            <s:iterator value="sexAgeReport">
+                <s:property value="total" />,
+            </s:iterator>
                         ]);
+                        $(".modal-body").append($("#chartjs-barchart-2"));
             });
         </script>
     </head>
@@ -109,7 +110,8 @@
                             </div>
                         </div>
                         <!-- END WIDGET -->
-
+                        
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nuccitelli's spikes</button>
                     </div>
 
                     <div class="row">
@@ -132,23 +134,28 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <!-- START WIDGET -->
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading chart-heading">
-                                    <span>Total Distribution</span>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="chartjs-barchart-2" width="1000" height="400" style="width: 1000px; height: 400px;"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
+
+        <canvas id="chartjs-barchart-2" width="1000" height="400" style="width: 1000px; height: 400px;"></canvas>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" style="width:1050px;margin-top:70px">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Nuccitelli's spikes</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
 

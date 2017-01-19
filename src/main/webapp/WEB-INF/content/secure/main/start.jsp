@@ -13,7 +13,7 @@
              <div class="content-wrapper">
                 <div class="content-heading">
                     Census Pilot Survey - 2016 
-                    <small>Field work monitor</small>
+                    <small>Home</small>
                 </div>
 
                 <!-- START PANEL-->

@@ -25,8 +25,8 @@
         <section>
             <div class="content-wrapper">
                 <div class="content-heading">
-                    CsPro2sql
-                    <small>Load Report</small>
+                    Load Errors
+                    <small>CsPro2Sql</small>
                 </div>
 
                 <div class="row">
