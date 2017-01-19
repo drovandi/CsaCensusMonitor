@@ -30,6 +30,7 @@
                     ],
                     responsive: true,
                     lengthChange: false,
+                    order: [[ 1, "desc" ]],
                     buttons: ['csv', 'excel', 'pdf']
                 });
                 table.buttons().container().appendTo('#religion_wrapper .col-sm-6:eq(0)');
@@ -52,7 +53,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Religion Report</div>
+                            <div class="panel-heading chart-heading">Data</div>
                             <div class="panel-body">
                                 <table id="religion" class="table table-striped" cellspacing="0" width="100%">
                                 </table>
@@ -63,7 +64,7 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading chart-heading">
-                                <span>Religion Piechart</span>
+                                <span>Piechart</span>
                                 <span class="pull-right legend">
                                     <ul>
                                         <li><i class="fa fa-square fa-fw" style="color:#23b7e5"></i><span>Male</span></li>

@@ -28,7 +28,7 @@ var drawChart = function () {
 var drawPie = function (values) {
     var pieChart = document.getElementById("chartjs-piechart").getContext("2d");
     var data = [];
-    var colors = ["#23b7e5","#23b7e5","#f44336","#f44336"];
+    var colors = ["#F7464A","#E2EAE9","#D4CCC5","#949FB1","#4D5360"];
     for (var i = 0; i < values.length; i++) {
         data.push({
             value: values[i][1],
@@ -37,9 +37,9 @@ var drawPie = function (values) {
         });
     }
     var options = {
-        segmentShowStroke: false,
-        animateScale: false,
-        animateRotate: false
+        animation: true,
+        animationEasing: 'easeInOutQuart',
+        animationSteps: 80
     };
     new Chart(pieChart).Pie(data, options);
 };
