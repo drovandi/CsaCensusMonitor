@@ -73,7 +73,7 @@
                                         <em class="fa fa-newspaper-o fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.household" /></div>
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.total" /></div>
                                         <div class="text-uppercase">Questionnaires</div>
                                     </div>
                                 </div>
@@ -89,9 +89,8 @@
                                         <em class="fa fa-user fa-3x"></em>
                                     </div>
                                     <div class="col-xs-8 widget-content">
-                                        <div class="h2 mt0" id="individualCount"><i class="fa fa-cog fa-spin fa-fw"></i></div>
-                                        <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
-                                        <div class="text-uppercase">Individuals</div>
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual" /></div>
+                                        <div class="text-uppercase">Avg Individuals</div>
                                     </div>
                                 </div>
                             </div>
@@ -103,21 +102,46 @@
                     <div class="row">
 
                         <!-- START WIDGET -->
-                        <div class="col-lg-7">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="text-info">Regional Distribution</div>
-                                    <canvas id="chartjs-barchart" width="500" height="400"></canvas>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="panel widget bg-male">
+                                <div class="row row-table">
+                                    <div class="col-xs-4 text-center bg-male-dark ">
+                                        <em class="fa fa-newspaper-o fa-3x"></em>
+                                    </div>
+                                    <div class="col-xs-8 widget-content">
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual_male" /></div>
+                                        <div class="text-uppercase">Avg Male</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- END WIDGET -->
 
                         <!-- START WIDGET -->
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="panel widget bg-female">
+                                <div class="row row-table">
+                                    <div class="col-xs-4 text-center bg-female-dark pv-lg">
+                                        <em class="fa fa-user fa-3x"></em>
+                                    </div>
+                                    <div class="col-xs-8 widget-content">
+                                        <div class="h2 mt0" id="questionnaireCount"><s:property value="questionnaireReport.avg_individual_female" /></div>
+                                        <div class="text-uppercase">Avg Female</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END WIDGET -->
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- START WIDGET -->
                         <div class="col-lg-3">
                             <div class="panel panel-default">
                                 <div class="panel-body text-center">
-                                    <div class="text-info">Returned Questionnaires</div>
+                                    <div class="text-info">EAs Returned</div>
                                     <canvas class="totalPercentage"></canvas>
                                 </div>
                             </div>

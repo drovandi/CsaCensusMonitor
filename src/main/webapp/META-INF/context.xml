@@ -2,7 +2,7 @@
 <Context path="/CsaCensusMonitor" useHttpOnly="true">
   <Realm className="org.apache.catalina.realm.LockOutRealm">
     <Realm className="org.apache.catalina.realm.JDBCRealm" connectionName="${jdbc.username}" connectionPassword="${jdbc.password}" connectionURL="${jdbc.url}" driverName="com.mysql.jdbc.Driver" roleNameCol="role" userCredCol="password" userNameCol="email" userRoleTable="c_user_roles" userTable="c_user" validationQuery="select 1">
-      <!--CredentialHandler algorithm="SHA-256" className="org.apache.catalina.realm.MessageDigestCredentialHandler" saltLength="0"/-->
+      <CredentialHandler algorithm="SHA-256" className="org.apache.catalina.realm.MessageDigestCredentialHandler" saltLength="0"/>
     </Realm>
   </Realm>
 </Context>

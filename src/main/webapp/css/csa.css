@@ -237,6 +237,22 @@ aside.toggle-off .active {
     background-color: #564aa3;
     color: #fff!important;
 }
+.bg-female {
+    background-color: #FF5721;
+    color: #fff!important;
+}
+.bg-female-dark {
+    background-color: #f44336;
+    color: #fff!important;
+}
+.bg-male {
+    background-color: #11a4d2;
+    color: #fff!important;
+}
+.bg-male-dark {
+    background-color: #455fb7;
+    color: #fff!important;
+}
 /* END WIDGET */
 
 @media screen and (max-width: 560px) {

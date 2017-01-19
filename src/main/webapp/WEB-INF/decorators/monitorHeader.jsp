@@ -64,10 +64,15 @@
                         <span>Analysis Report</span>
                     </a>
                     <ul id="data" class="nav sidebar-subnav collapse" aria-expanded="false">
-                        <li id="report-sex">
-                            <a href="${ctx}/secure/report/sexDistribution" title="Sex Distribution">
-                                <span>Sex Distribution</span>
+                        <li id="report-population">
+                            <a href="${ctx}/secure/report/population" title="Sex Distribution">
+                                <span>Population</span>
                             </a>
+                        </li>
+                        <li id="report-sex">
+                           <a href="${ctx}/secure/report/sexDistribution" title="Sex Distribution">
+                               <span>Sex Distribution</span>
+                           </a>
                         </li>
                         <li id="report-birth">
                             <a href="${ctx}/secure/report/birthYear" title="Birth Year Distribution">
