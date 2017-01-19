@@ -71,10 +71,6 @@
                             <div class="panel-heading chart-heading">
                                 <span>Piechart</span>
                                 <span id="chartjs-piechart-legend" class="pull-right legend">
-                                    <ul>
-                                        <li><i class="fa fa-square fa-fw" style="color:#23b7e5"></i><span>Male</span></li>
-                                        <li><i class="fa fa-square fa-fw" style="color:#f44336"></i><span>Female</span></li>
-                                    </ul>
                                 </span>
                             </div>
                             <div class="panel-body">
