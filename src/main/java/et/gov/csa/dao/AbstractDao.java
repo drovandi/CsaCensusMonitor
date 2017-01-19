@@ -46,6 +46,17 @@ public abstract class AbstractDao<T, ID extends Serializable> {
         return hibernateTemplate.loadAll(persistentClass);
     }
     
+    public List<T> getAll(final Order order) {
+        return (List<T>) this.hibernateTemplate.execute(new HibernateCallback() {
+            @Override
+            public Object doInHibernate(Session session) {
+                Criteria crit = session.createCriteria(persistentClass);
+                crit.addOrder(order);
+                return crit.list();
+            }
+        });
+    }
+    
     public T save(T entity) {
         hibernateTemplate.saveOrUpdate(entity);
         return entity;

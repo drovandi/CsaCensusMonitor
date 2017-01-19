@@ -11,6 +11,7 @@ import et.gov.csa.domain.RQuestionnaireInfo;
 import et.gov.csa.domain.RRegionalArea;
 import et.gov.csa.domain.RReligion;
 import et.gov.csa.domain.RSexByAge;
+import et.gov.csa.domain.RSexByAgeGroup;
 import et.gov.csa.service.CsPro2SqlService;
 import et.gov.csa.service.DataReportService;
 import java.util.List;
@@ -25,10 +26,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Istat Cooperation Unit
  */
 @ParentPackage(value = "default")
-public class ReportAction extends BaseAction {
+public class DataReportAction extends BaseAction {
 
-    private static final long serialVersionUID = 827880151339521780L;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ReportAction.class);
+    private static final long serialVersionUID = 1172293631047849261L;
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataReportAction.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static final ObjectWriter WRITER = MAPPER.writer();
     private static final ObjectReader READER = MAPPER.reader();
@@ -40,7 +41,8 @@ public class ReportAction extends BaseAction {
     private RRegionalArea regionalAreaReport;
     private List<RReligion> religionReport;
     private RIndividualInfo populationReport;
-    private RSexByAge sexAgeReport;
+    private List<RSexByAge> sexAgeReport;
+    private RSexByAgeGroup sexAgeGroupReport;
     private List<LoadError> loadErrors;
     
     @Action("")
@@ -70,6 +72,7 @@ public class ReportAction extends BaseAction {
     public String sexDistribution() {
         populationReport = dataReportService.getPopulationReport();
         sexAgeReport = dataReportService.getSexByAgeReport();
+        sexAgeGroupReport = dataReportService.getSexByAgeGroupReport();
         return "sexDistribution";
     }
     
@@ -100,8 +103,12 @@ public class ReportAction extends BaseAction {
         return questionnaireReport;
     }
 
-    public RSexByAge getSexAgeReport() {
+    public List<RSexByAge> getSexAgeReport() {
         return sexAgeReport;
+    }
+
+    public RSexByAgeGroup getSexAgeGroupReport() {
+        return sexAgeGroupReport;
     }
 
     public RIndividualInfo getPopulationReport() {

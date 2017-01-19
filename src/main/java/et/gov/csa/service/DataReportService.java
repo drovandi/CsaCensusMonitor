@@ -6,11 +6,13 @@ import et.gov.csa.dao.RQuestionnaireInfoDao;
 import et.gov.csa.dao.RRegionalAreaDao;
 import et.gov.csa.dao.RReligionDao;
 import et.gov.csa.dao.RSexByAgeDao;
+import et.gov.csa.dao.RSexByAgeGroupDao;
 import et.gov.csa.domain.RIndividualInfo;
 import et.gov.csa.domain.RQuestionnaireInfo;
 import et.gov.csa.domain.RRegionalArea;
 import et.gov.csa.domain.RReligion;
 import et.gov.csa.domain.RSexByAge;
+import et.gov.csa.domain.RSexByAgeGroup;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,7 @@ public class DataReportService {
     
     @Autowired private RIndividualInfoDao rIndividualInfoDao;
     @Autowired private RSexByAgeDao rSexByAgeDao;
+    @Autowired private RSexByAgeGroupDao rSexByAgeGroupDao;
     @Autowired private RQuestionnaireInfoDao rQuestionnaireInfoDao;
     @Autowired private RRegionalAreaDao rRegionalAreaDao;
     @Autowired private RReligionDao rReligionDao;
@@ -32,8 +35,12 @@ public class DataReportService {
         return rIndividualInfoDao.getAll().get(0);
     }
     
-    public RSexByAge getSexByAgeReport() {
-        return rSexByAgeDao.getAll().get(0);
+    public List<RSexByAge> getSexByAgeReport() {
+        return rSexByAgeDao.getAll();
+    }
+    
+    public RSexByAgeGroup getSexByAgeGroupReport() {
+        return rSexByAgeGroupDao.getAll().get(0);
     }
     
     public RQuestionnaireInfo getQuestionnaireReport() {

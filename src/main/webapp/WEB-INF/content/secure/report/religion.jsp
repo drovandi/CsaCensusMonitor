@@ -34,10 +34,15 @@
                     buttons: ['csv', 'excel', 'pdf']
                 });
                 table.buttons().container().appendTo('#religion_wrapper .col-sm-6:eq(0)');
+                <s:set name="other" value="0" />
+                <s:iterator value="religionReport" begin="3">
+                    <s:set name="other" value="#other+individuals" />
+                </s:iterator>
                 drawPie([
-            <s:iterator value="religionReport">
-                ["<s:property value="religion" />",<s:property value="individuals" />],
-            </s:iterator>
+                    <s:iterator value="religionReport" begin="0" end="2">
+                        ["<s:property value="religion" />",<s:property value="individuals" />],
+                    </s:iterator>
+                    ["Other",<s:property value="#other" />],
                 ]);
             }
         </script>
@@ -65,7 +70,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading chart-heading">
                                 <span>Piechart</span>
-                                <span class="pull-right legend">
+                                <span id="chartjs-piechart-legend" class="pull-right legend">
                                     <ul>
                                         <li><i class="fa fa-square fa-fw" style="color:#23b7e5"></i><span>Male</span></li>
                                         <li><i class="fa fa-square fa-fw" style="color:#f44336"></i><span>Female</span></li>

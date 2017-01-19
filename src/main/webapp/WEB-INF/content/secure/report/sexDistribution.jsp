@@ -11,7 +11,7 @@
         <script type="text/javascript">
             $(function () {
                 setMenuActive("report-sex");
-                drawChart(
+                drawChart("chartjs-barchart-1",
                         [
                             "0 to 4",
                             "5 to 10",
@@ -25,28 +25,39 @@
                             "76 to 99"
                         ],
                         [
-            <s:property value="sexAgeReport.male_0_4" />,
-            <s:property value="sexAgeReport.male_5_10" />,
-            <s:property value="sexAgeReport.male_11_16" />,
-            <s:property value="sexAgeReport.male_17_25" />,
-            <s:property value="sexAgeReport.male_26_34" />,
-            <s:property value="sexAgeReport.male_35_45" />,
-            <s:property value="sexAgeReport.male_46_55" />,
-            <s:property value="sexAgeReport.male_56_65" />,
-            <s:property value="sexAgeReport.male_66_75" />,
-            <s:property value="sexAgeReport.male_76_99" />
+                            <s:property value="sexAgeGroupReport.male_0_4" />,
+                            <s:property value="sexAgeGroupReport.male_5_10" />,
+                            <s:property value="sexAgeGroupReport.male_11_16" />,
+                            <s:property value="sexAgeGroupReport.male_17_25" />,
+                            <s:property value="sexAgeGroupReport.male_26_34" />,
+                            <s:property value="sexAgeGroupReport.male_35_45" />,
+                            <s:property value="sexAgeGroupReport.male_46_55" />,
+                            <s:property value="sexAgeGroupReport.male_56_65" />,
+                            <s:property value="sexAgeGroupReport.male_66_75" />,
+                            <s:property value="sexAgeGroupReport.male_76_99" />
                         ],
                         [
-            <s:property value="sexAgeReport.female_0_4" />,
-            <s:property value="sexAgeReport.female_5_10" />,
-            <s:property value="sexAgeReport.female_11_16" />,
-            <s:property value="sexAgeReport.female_17_25" />,
-            <s:property value="sexAgeReport.female_26_34" />,
-            <s:property value="sexAgeReport.female_35_45" />,
-            <s:property value="sexAgeReport.female_46_55" />,
-            <s:property value="sexAgeReport.female_56_65" />,
-            <s:property value="sexAgeReport.female_66_75" />,
-            <s:property value="sexAgeReport.female_76_99" />
+                            <s:property value="sexAgeGroupReport.female_0_4" />,
+                            <s:property value="sexAgeGroupReport.female_5_10" />,
+                            <s:property value="sexAgeGroupReport.female_11_16" />,
+                            <s:property value="sexAgeGroupReport.female_17_25" />,
+                            <s:property value="sexAgeGroupReport.female_26_34" />,
+                            <s:property value="sexAgeGroupReport.female_35_45" />,
+                            <s:property value="sexAgeGroupReport.female_46_55" />,
+                            <s:property value="sexAgeGroupReport.female_56_65" />,
+                            <s:property value="sexAgeGroupReport.female_66_75" />,
+                            <s:property value="sexAgeGroupReport.female_76_99" />
+                        ]);
+                drawChart("chartjs-barchart-2",
+                        [
+                            <s:iterator value="sexAgeReport">
+                                "<s:property value="age" />",
+                            </s:iterator>
+                        ],
+                        [
+                            <s:iterator value="sexAgeReport">
+                                <s:property value="total" />,
+                            </s:iterator>
                         ]);
             });
         </script>
@@ -115,7 +126,21 @@
                                     </span>
                                 </div>
                                 <div class="panel-body">
-                                    <canvas id="chartjs-barchart" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+                                    <canvas id="chartjs-barchart-1" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- START WIDGET -->
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading chart-heading">
+                                    <span>Total Distribution</span>
+                                </div>
+                                <div class="panel-body">
+                                    <canvas id="chartjs-barchart-2" width="1000" height="400" style="width: 1000px; height: 400px;"></canvas>
                                 </div>
                             </div>
                         </div>
