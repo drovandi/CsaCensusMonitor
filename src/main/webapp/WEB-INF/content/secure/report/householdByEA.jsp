@@ -44,8 +44,8 @@
                     ],
                     responsive: true,
                     lengthChange: false,
-                    pageLength: 20,
-                    order: [[ 1, "asc" ]],
+                    pageLength: 10,
+                    order: [[ 0, "asc" ]],
                     buttons: ['csv', 'excel', 'pdf']
                 });
                 table.buttons().container().appendTo('#huseholds_wrapper .col-sm-6:eq(0)');

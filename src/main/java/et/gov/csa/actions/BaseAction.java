@@ -30,4 +30,9 @@ public abstract class BaseAction extends ActionSupport implements PrincipalAware
         return principal;
     }
     
+    public double percentage(int a, int b) {
+        if (a+b==0) return 0;
+        return Math.round(1000.*a/(a+b))/10.;
+    }
+    
 }

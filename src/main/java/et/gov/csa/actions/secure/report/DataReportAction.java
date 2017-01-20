@@ -29,7 +29,6 @@ public class DataReportAction extends BaseAction {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataReportAction.class);
     
     @Autowired private DataReportService dataReportService;
-    @Autowired private CsPro2SqlService csPro2SqlService;
     
     private RQuestionnaireInfo questionnaireReport;
     private RRegionalArea regionalAreaReport;
@@ -37,7 +36,6 @@ public class DataReportAction extends BaseAction {
     private RIndividualInfo populationReport;
     private List<RSexByAge> sexAgeReport;
     private RSexByAgeGroup sexAgeGroupReport;
-    private List<LoadError> loadErrors;
     
     @Action("")
     public String start() {
@@ -77,22 +75,6 @@ public class DataReportAction extends BaseAction {
         return "questionnaire";
     }
     
-    @Action("cspro2sqlError")
-    public String cspro2sqlError() {
-        loadErrors = csPro2SqlService.getLoadErrors();
-        return "cspro2sqlError";
-    }
-
-    @Action("todo")
-    public String todo() {
-        return "todo";
-    }
-    
-    public double percentage(int a, int b) {
-        if (a+b==0) return 0;
-        return Math.round(1000.*a/(a+b))/10.;
-    }
-    
     public RQuestionnaireInfo getQuestionnaireReport() {
         return questionnaireReport;
     }
@@ -117,8 +99,4 @@ public class DataReportAction extends BaseAction {
         return religionReport;
     }
 
-    public List<LoadError> getLoadErrors() {
-        return loadErrors;
-    }
-    
 }
