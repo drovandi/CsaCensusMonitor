@@ -1,9 +1,6 @@
 
 package et.gov.csa.actions.secure.report;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import et.gov.csa.actions.BaseAction;
 import et.gov.csa.domain.LoadError;
 import et.gov.csa.domain.RIndividualInfo;
@@ -30,9 +27,6 @@ public class DataReportAction extends BaseAction {
 
     private static final long serialVersionUID = 1172293631047849261L;
     private static final Logger LOGGER = LoggerFactory.getLogger(DataReportAction.class);
-    private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final ObjectWriter WRITER = MAPPER.writer();
-    private static final ObjectReader READER = MAPPER.reader();
     
     @Autowired private DataReportService dataReportService;
     @Autowired private CsPro2SqlService csPro2SqlService;

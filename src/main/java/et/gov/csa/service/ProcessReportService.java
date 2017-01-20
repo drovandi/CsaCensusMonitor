@@ -1,12 +1,9 @@
 
 package et.gov.csa.service;
 
-import et.gov.csa.dao.RIndividualCountDao;
-import et.gov.csa.dao.RQuestionnaireDao;
-import et.gov.csa.dao.RSexByAgeDao;
-import et.gov.csa.domain.RIndividualCount;
-import et.gov.csa.domain.RQuestionnaire;
-import et.gov.csa.domain.RSexByAge;
+import et.gov.csa.dao.RHouseholdByEADao;
+import et.gov.csa.domain.RHouseholdByEA;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProcessReportService {
     
-    @Autowired private RQuestionnaireDao rQuestionnaireDao;
-    @Autowired private RIndividualCountDao rIndividualCountDao;
+    @Autowired private RHouseholdByEADao rHouseholdByEADao;
     
-    public RQuestionnaire getQuestionnaireReport() {
-        return rQuestionnaireDao.getAll().get(0);
+    public List<RHouseholdByEA> getHouseholdByEAReport() {
+        return rHouseholdByEADao.getAll();
     }
     
-    public RIndividualCount getIndividualCountReport() {
-        return rIndividualCountDao.getAll().get(0);
-    }
-
 }

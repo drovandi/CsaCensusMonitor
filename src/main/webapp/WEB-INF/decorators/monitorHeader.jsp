@@ -37,25 +37,18 @@
                     </a>
                 </li>
                 <s:if test="principalProxy.isUserInRole('ADMIN')">
-                    <li class="nav-body" id="todo">
-                        <a href="${ctx}/secure/report/todo" title="Monitor Report" >
+                    <li class="nav-body">
+                        <a href="#process" title="Process Report" data-toggle="collapse" class="collapsed" aria-expanded="false">
                             <i class="fa fa-cogs"></i>
-                            <span>Monitor Report</span>
+                            <span>Process Report</span>
                         </a>
-                        <!--
                         <ul id="process" class="nav sidebar-subnav collapse" aria-expanded="false">
-                            <li id="report-questionnaire">
-                                <a href="${ctx}/secure/report/questionnaire" title="by Questionnaire">
-                                    <span>by Questionnaire</span>
-                                </a>
-                            </li>
-                            <li id="report-territory">
-                                <a href="${ctx}/secure/report/territory" title="by Territory">
-                                    <span>by Territory</span>
+                            <li id="report-household">
+                                <a href="${ctx}/secure/report/householdByEA" title="Household by EA">
+                                    <span>Household by EA</span>
                                 </a>
                             </li>
                         </ul>
-                        -->
                     </li>
                 </s:if>
                 <li class="nav-body">

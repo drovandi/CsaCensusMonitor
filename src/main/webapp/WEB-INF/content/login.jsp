@@ -16,7 +16,10 @@
         <!-- Javascript -->
         <script src="${ctx}/js/jquery-3.1.1.min.js" type="text/javascript"></script>
         <script src="${ctx}/js/bootstrap.min.js" type="text/javascript"></script>      
-
+        <script src="${ctx}/js/chart/chart.js"></script>
+        <script src="${ctx}/js/chart/csaChart.js"></script>
+        <script src="${ctx}/js/table/datatables.js"></script>
+        
         <!-- CSS -->
         <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
         <link href="${ctx}/css/login.css" rel="stylesheet">
