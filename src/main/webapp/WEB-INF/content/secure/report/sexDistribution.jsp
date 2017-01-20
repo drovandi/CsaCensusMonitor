@@ -111,7 +111,7 @@
                         </div>
                         <!-- END WIDGET -->
                         
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Nuccitelli's spikes</button>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Totals</button>
                     </div>
 
                     <div class="row">
@@ -145,7 +145,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Nuccitelli's spikes</h4>
+                        <h4 class="modal-title">Age Distribution</h4>
                     </div>
                     <div class="modal-body">
                     </div>
