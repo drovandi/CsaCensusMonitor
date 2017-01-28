@@ -13,7 +13,7 @@
             $(function () {
                 setMenuActive("report-questionnaire");
                 $('.totalPercentage').ClassyLoader({
-                    percentage: <s:property value="100.*regionalAreaReport.ea/256" />,
+                    percentage: <s:property value="100.*regionalEAReport.value/256" />,
                     speed: 20,
                     diameter: 70,
                     fontSize: '40px',
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <!-- END WIDGET -->
-                        
+
                     </div>
 
                 </div>

@@ -13,40 +13,19 @@
                 setMenuActive("report-sex");
                 drawChart("chartjs-barchart-1",
                         [
-                            "0 to 4",
-                            "5 to 10",
-                            "11 to 16",
-                            "17 to 25",
-                            "26 to 34",
-                            "35 to 45",
-                            "46 to 55",
-                            "56 to 65",
-                            "66 to 75",
-                            "76 to 99"
+            <s:iterator value="sexAgeGroupReport">
+                            "<s:property value="range" />",
+            </s:iterator>
                         ],
                         [
-            <s:property value="sexAgeGroupReport.male_0_4" />,
-            <s:property value="sexAgeGroupReport.male_5_10" />,
-            <s:property value="sexAgeGroupReport.male_11_16" />,
-            <s:property value="sexAgeGroupReport.male_17_25" />,
-            <s:property value="sexAgeGroupReport.male_26_34" />,
-            <s:property value="sexAgeGroupReport.male_35_45" />,
-            <s:property value="sexAgeGroupReport.male_46_55" />,
-            <s:property value="sexAgeGroupReport.male_56_65" />,
-            <s:property value="sexAgeGroupReport.male_66_75" />,
-            <s:property value="sexAgeGroupReport.male_76_99" />
+            <s:iterator value="sexAgeGroupReport">
+                <s:property value="male" />,
+            </s:iterator>
                         ],
                         [
-            <s:property value="sexAgeGroupReport.female_0_4" />,
-            <s:property value="sexAgeGroupReport.female_5_10" />,
-            <s:property value="sexAgeGroupReport.female_11_16" />,
-            <s:property value="sexAgeGroupReport.female_17_25" />,
-            <s:property value="sexAgeGroupReport.female_26_34" />,
-            <s:property value="sexAgeGroupReport.female_35_45" />,
-            <s:property value="sexAgeGroupReport.female_46_55" />,
-            <s:property value="sexAgeGroupReport.female_56_65" />,
-            <s:property value="sexAgeGroupReport.female_66_75" />,
-            <s:property value="sexAgeGroupReport.female_76_99" />
+            <s:iterator value="sexAgeGroupReport">
+                <s:property value="female" />,
+            </s:iterator>
                         ]);
                 drawChart("chartjs-barchart-2",
                         [
@@ -59,7 +38,7 @@
                 <s:property value="total" />,
             </s:iterator>
                         ]);
-                        $(".modal-body").append($("#chartjs-barchart-2"));
+                $(".modal-body").append($("#chartjs-barchart-2"));
             });
         </script>
     </head>
@@ -110,7 +89,7 @@
                             </div>
                         </div>
                         <!-- END WIDGET -->
-                        
+
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Totals</button>
                     </div>
 

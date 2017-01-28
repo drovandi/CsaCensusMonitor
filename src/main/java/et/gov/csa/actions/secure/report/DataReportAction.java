@@ -1,15 +1,12 @@
-
 package et.gov.csa.actions.secure.report;
 
 import et.gov.csa.actions.BaseAction;
-import et.gov.csa.domain.LoadError;
 import et.gov.csa.domain.RIndividualInfo;
 import et.gov.csa.domain.RQuestionnaireInfo;
 import et.gov.csa.domain.RRegionalArea;
 import et.gov.csa.domain.RReligion;
 import et.gov.csa.domain.RSexByAge;
 import et.gov.csa.domain.RSexByAgeGroup;
-import et.gov.csa.service.CsPro2SqlService;
 import et.gov.csa.service.DataReportService;
 import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
@@ -27,28 +24,29 @@ public class DataReportAction extends BaseAction {
 
     private static final long serialVersionUID = 1172293631047849261L;
     private static final Logger LOGGER = LoggerFactory.getLogger(DataReportAction.class);
-    
-    @Autowired private DataReportService dataReportService;
-    
+
+    @Autowired
+    private DataReportService dataReportService;
+
     private RQuestionnaireInfo questionnaireReport;
-    private RRegionalArea regionalAreaReport;
+    private RRegionalArea regionalEAReport;
     private List<RReligion> religionReport;
     private RIndividualInfo populationReport;
     private List<RSexByAge> sexAgeReport;
-    private RSexByAgeGroup sexAgeGroupReport;
-    
+    private List<RSexByAgeGroup> sexAgeGroupReport;
+
     @Action("")
     public String start() {
         return questionnaire();
     }
-    
+
     @Action("questionnaire")
     public String questionnaire() {
         questionnaireReport = dataReportService.getQuestionnaireReport();
-        regionalAreaReport = dataReportService.getRegionalAreaReport();
+        regionalEAReport = dataReportService.getRegionalEAReport();
         return "questionnaire";
     }
-    
+
     @Action("territory")
     public String territory() {
         return "territory";
@@ -59,7 +57,7 @@ public class DataReportAction extends BaseAction {
         populationReport = dataReportService.getPopulationReport();
         return "population";
     }
-    
+
     @Action("sexDistribution")
     public String sexDistribution() {
         populationReport = dataReportService.getPopulationReport();
@@ -67,14 +65,14 @@ public class DataReportAction extends BaseAction {
         sexAgeGroupReport = dataReportService.getSexByAgeGroupReport();
         return "sexDistribution";
     }
-    
+
     @Action("religion")
     public String religion() {
         populationReport = dataReportService.getPopulationReport();
         religionReport = dataReportService.getReligionReport();
         return "questionnaire";
     }
-    
+
     public RQuestionnaireInfo getQuestionnaireReport() {
         return questionnaireReport;
     }
@@ -83,7 +81,7 @@ public class DataReportAction extends BaseAction {
         return sexAgeReport;
     }
 
-    public RSexByAgeGroup getSexAgeGroupReport() {
+    public List<RSexByAgeGroup> getSexAgeGroupReport() {
         return sexAgeGroupReport;
     }
 
@@ -91,8 +89,8 @@ public class DataReportAction extends BaseAction {
         return populationReport;
     }
 
-    public RRegionalArea getRegionalAreaReport() {
-        return regionalAreaReport;
+    public RRegionalArea getRegionalEAReport() {
+        return regionalEAReport;
     }
 
     public List<RReligion> getReligionReport() {
