@@ -11,41 +11,25 @@
         <script>
             $(function () {
                 setMenuActive("report-household");
-                populate();
+                $.ajax({
+                    url: "householdByEAData",
+                    success: function (r) {
+                        populate(r.data, r.name);
+                    }
+                });
             });
-            function populate() {
-                var dataSet = [
-                <s:iterator value="householdByEAReport">
-                    ["<s:property value="region" />",
-                    <s:property value="zone" />,
-                    <s:property value="woreda" />,
-                    <s:property value="city" />,
-                    <s:property value="subcity" />,
-                    <s:property value="psa" />,
-                    <s:property value="sa" />,
-                    <s:property value="kebele" />,
-                    <s:property value="ea" />,
-                    <s:property value="household" />],
-                </s:iterator>
-                ];
+            function populate(dataSet, name) {
+                var columnsSet = [];
+                for (var i in name) {
+                    columnsSet.push({title: name[i]});
+                }
                 var table = $('#huseholds').DataTable({
                     data: dataSet,
-                    columns: [
-                        {title: "Region"},
-                        {title: "Zone"},
-                        {title: "Woreda"},
-                        {title: "City"},
-                        {title: "Subcity"},
-                        {title: "Principal S. Area"},
-                        {title: "S. Area"},
-                        {title: "Kebele"},
-                        {title: "EA"},
-                        {title: "Total"}
-                    ],
+                    columns: columnsSet,
                     responsive: true,
                     lengthChange: false,
                     pageLength: 10,
-                    order: [[ 0, "asc" ]],
+                    order: [[0, "asc"]],
                     buttons: ['csv', 'excel', 'pdf']
                 });
                 table.buttons().container().appendTo('#huseholds_wrapper .col-sm-6:eq(0)');

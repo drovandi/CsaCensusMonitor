@@ -1,4 +1,3 @@
-
 package et.gov.csa.service;
 
 import et.gov.csa.dao.RHouseholdByEADao;
@@ -13,11 +12,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProcessReportService {
-    
-    @Autowired private RHouseholdByEADao rHouseholdByEADao;
-    
+
+    @Autowired
+    private RHouseholdByEADao rHouseholdByEADao;
+
     public List<RHouseholdByEA> getHouseholdByEAReport() {
         return rHouseholdByEADao.getAll();
     }
-    
+
 }
